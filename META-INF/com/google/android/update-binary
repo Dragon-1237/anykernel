@@ -338,7 +338,7 @@ do_levelcheck() {
     hi_lvl=9999-99;
   fi;
   if echo -e "$hi_lvl\n$lo_lvl\n$parsed_lvl" | $BB sort -g | $BB grep -n "$parsed_lvl" | $BB grep -q '^2:'; then
-    ui_print "  $android_lvl" " ";
+    ui_print "  $android_lvl" ;
   else
     abort " " "  Unsupported Android security patch level.";
     ui_print "  Aborting";
@@ -470,8 +470,8 @@ else
   ui_print "|        ___/ / /___/ /___/ /___/ ____/ / /        |";
   ui_print "|       /____/_____/_____/_____/_/     /_/         |";
   ui_print "|               K   E   R   N   E   L              |";
-  ui_print "|                                                  |";
-  ui_print "|     @shashank1436 | mido | 4.9 | RedmiNote4X     |";
+  ui_print "+--------------------------------------------------+";
+  ui_print "|         by shashank1436 @ xda-developers         |";
   ui_print "+--------------------------------------------------+";
   ui_print " ";
 fi;
@@ -500,11 +500,11 @@ do_installaddon() {
       "
     ui_print " ";
     ui_print "+--------------------------------------------------+";
-    ui_print "|           Installing Add-on & Permissions        |";
+    ui_print "|    Installing Custom 4.9 thermal & Powerhint     |";
+    ui_print "|         by shashank1436 @ xda-developers         |";
+    ui_print "+--------------------------------------------------+";
+    ui_print "|            Setting up file Permission            |";
     ui_print "|                by TIASH / @MrCarb0n              |";
-    ui_print "|                                                  |";
-    ui_print "|             Custom thermal & Powerhint           |";
-    ui_print "|                  by @shashank1436                |";
     ui_print "+--------------------------------------------------+";
     $BB mount -o rw,remount -t auto $P 2>/dev/null;
     $BB unzip -oq addon.zip -d $P;
@@ -517,6 +517,8 @@ do_installaddon() {
 
 do_addoncheck() {
     ui_print " ";
+    ui_print "+--------------------------------------------------+";
+    ui_print "|Add-on include custom 4.9 thermal & CAF Power hint|";
     ui_print "+--------------------------------------------------+";
     ui_print "|             Want to install Add-on?              |";
     ui_print "+--------------------------------------------------+";
@@ -577,7 +579,6 @@ do_devicecheck;
 do_versioncheck;
 do_levelcheck;
 do_compatibilitycheck;
-do_addoncheck;
 
 
 ui_print " " "- Installing..";
@@ -588,6 +589,9 @@ if [ $? != 0 ]; then
   abort;
 fi;
 ui_print "  Done";
+
+
+do_addoncheck;
 
 do_modules;
 
