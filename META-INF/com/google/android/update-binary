@@ -516,6 +516,7 @@ do_installaddon() {
 
 
 do_addoncheck() {
+    ui_print " ";
     ui_print "+--------------------------------------------------+";
     ui_print "|             Want to install Add-on?              |";
     ui_print "+--------------------------------------------------+";
@@ -551,6 +552,13 @@ do_addoncheck() {
     rm $AKHOME/events
 }
 
+do_compatibilitycheck() {
+## Check kernel base compatibility for 4.9-mido //
+ui_print " " "- Checking kernel compatibility..";
+if [ ! -f /vendor/etc/init/hw/init.msm.usb.configfs.rc ]; then
+ui_print "  Incompatible OS, installation aborted!"; exit 1;
+fi; ui_print "  Requirement reached";
+}
 
 # KERNEL_STRING="$(file_getprop anykernel.sh kernel.string)";
 # ui_print "$KERNEL_STRING";
@@ -568,6 +576,7 @@ setup_env;
 do_devicecheck;
 do_versioncheck;
 do_levelcheck;
+do_compatibilitycheck;
 do_addoncheck;
 
 
