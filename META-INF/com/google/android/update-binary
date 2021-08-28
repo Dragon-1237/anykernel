@@ -494,7 +494,6 @@ do_installaddon() {
       $P/lib/libthermalclient.so
       $P/lib/hw/thermal.msm8953.so
       $P/lib64/libthermalclient.so
-      $P/lib64/libthermalfeature.so
       $P/lib64/libthermalioctl.so
       $P/lib64/hw/thermal.msm8953.so
       "
