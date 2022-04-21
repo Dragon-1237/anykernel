@@ -10,7 +10,7 @@ do.systemless=0
 do.cleanup=1
 do.cleanuponabort=1
 device.name1=mido
-supported.versions=10-11
+supported.versions=10-12
 supported.patchlevels=2020-01-
 '; }
 # end properties
