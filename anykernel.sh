@@ -12,7 +12,7 @@ do.cleanup=1
 do.cleanuponabort=0
 device.name1=courbet
 device.name2=courbetin
-supported.versions=11,12
+supported.versions=
 supported.patchlevels=
 '; } # end properties
 
